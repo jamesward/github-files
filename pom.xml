@@ -40,7 +40,7 @@
                 </executions>
                 <configuration>
                     <preloadSources>
-                        <source>/jquery/jquery-1.6.2.min.js</source> <!-- todo: pull from webjar -->>
+                        <source>lib/jquery-1.7.2.min.js</source> <!-- todo: pull from webjar -->
                     </preloadSources>
                 </configuration>
             </plugin>
