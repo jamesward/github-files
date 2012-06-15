@@ -12,16 +12,20 @@ API:
 Examples:
 
     // fetch this README.md file and return all of the lines
-    $.getGithubFile("jamesward", "github-files", "", function(contents) {
+    $.getGithubFile("jamesward", "github-files", "2e7bf4aa35758d7a9cf87549d6299e924737ff05", function(contents) {
         console.log(contents)
     });
     
     // fetch this README.md file and return all of the lines beginning with line 6
-    $.getGithubFile("jamesward", "github-files", "", function(contents) {
+    $.getGithubFile("jamesward", "github-files", "2e7bf4aa35758d7a9cf87549d6299e924737ff05", function(contents) {
         console.log(contents)
     }, 6);
     
     // fetch this README.md file and return lines 6 - 15
-    $.getGithubFile("jamesward", "github-files", "", function(contents) {
+    $.getGithubFile("jamesward", "github-files", "2e7bf4aa35758d7a9cf87549d6299e924737ff05", function(contents) {
         console.log(contents)
     }, 6, 15);
+
+To get the sha for a file in git run something like:
+
+    git rev-parse HEAD:README.md
