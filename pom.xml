@@ -18,7 +18,7 @@
     </dependencies>
 
     <build>
-
+        
         <resources>
             <resource>
                 <directory>src/main/javascript</directory>
@@ -44,10 +44,11 @@
                     </preloadSources>
                 </configuration>
             </plugin>
+            
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>yuicompressor-maven-plugin</artifactId>
-                <version>1.1</version>
+                <version>1.3.0</version>
                 <executions>
                     <execution>
                         <id>compress-js</id>
@@ -58,7 +59,6 @@
                 </executions>
             </plugin>
         </plugins>
-
     </build>
 
 </project>
