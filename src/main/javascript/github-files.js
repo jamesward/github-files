@@ -13,6 +13,18 @@
       }
     };
 
+  $.getGithubFileByFilePath =
+    function(user, repo, filePath, callback, startLineNum, endLineNum) {
+      $.ajax({
+        type: "GET"
+        ,url: "https://api.github.com/repos/" + user + "/" + repo + "/contents/"+filePath
+        ,dataType: "jsonp"
+        ,success: function(data){
+          $.getGithubFile(user, repo, data.data.sha, callback, startLineNum, endLineNum)
+        }
+      });
+    };
+
   $.getGithubFile =
     function(user, repo, sha, callback, startLineNum, endLineNum) {
       $.ajax({
