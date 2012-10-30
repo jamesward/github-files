@@ -17,11 +17,10 @@
     };
 
   $.getGithubFileByFilePath =
-    function(user, repo, filePath, cacheIt, callback, startLineNum, endLineNum) {
-      if(cacheIt && githubCacheFilePath[filePath]){
+    function(user, repo, filePath, callback, startLineNum, endLineNum) {
+      if(githubCacheFilePath[filePath]){
           $.getGithubFile(user, repo, githubCacheFilePath[filePath], true, callback, startLineNum, endLineNum)
       }else{
-        delete githubCacheFilePath[filePath]
         $.ajax({
           type: "GET"
           ,url: "https://api.github.com/repos/" + user + "/" + repo + "/contents/"+filePath
@@ -35,11 +34,10 @@
     };
 
   $.getGithubFile =
-    function(user, repo, sha, cacheIt, callback, startLineNum, endLineNum) {
-      if(cacheIt && githubCacheSha[sha]){
+    function(user, repo, sha, callback, startLineNum, endLineNum) {
+      if(githubCacheSha[sha]){
         fnSuccess(githubCacheSha[sha], +startLineNum || 1, +endLineNum || 0, callback);
       }else{
-        delete githubCacheSha[sha]
         $.ajax({
           type: "GET"
           ,url: "https://api.github.com/repos/" + user + "/" + repo + "/git/blobs/" + sha
