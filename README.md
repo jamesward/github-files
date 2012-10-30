@@ -38,3 +38,5 @@ Examples:
 To get the sha for a file in git run something like:
 
     git rev-parse HEAD:README.md
+
+or use the `$.getGithubFileByFilePath` method as documented above.
