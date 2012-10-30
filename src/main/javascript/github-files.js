@@ -19,7 +19,7 @@
   $.getGithubFileByFilePath =
     function(user, repo, filePath, callback, startLineNum, endLineNum) {
       if(githubCacheFilePath[filePath]){
-          $.getGithubFile(user, repo, githubCacheFilePath[filePath], true, callback, startLineNum, endLineNum)
+          $.getGithubFile(user, repo, githubCacheFilePath[filePath], callback, startLineNum, endLineNum)
       }else{
         $.ajax({
           type: "GET"
@@ -27,7 +27,7 @@
           ,dataType: "jsonp"
           ,success: function(data){
             githubCacheFilePath[filePath] = data.data.sha;
-            $.getGithubFile(user, repo, githubCacheFilePath[filePath], cacheIt, callback, startLineNum, endLineNum)
+            $.getGithubFile(user, repo, githubCacheFilePath[filePath], callback, startLineNum, endLineNum)
           }
         });
       }
