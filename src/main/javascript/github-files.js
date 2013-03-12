@@ -7,7 +7,7 @@
       if (data.data.content && data.data.encoding === "base64") {
         var contentArray = 
           window
-            .atob(data.data.content.replace(/\n/g, ""))
+            .base64.decode(data.data.content.replace(/\n/g, ""))
             .split("\n");
 
         endLineNum = endLineNum || contentArray.length;
