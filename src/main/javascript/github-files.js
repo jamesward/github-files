@@ -5,11 +5,19 @@
   var fnSuccess =
     function (data, startLineNum, endLineNum, callback) {
       if (data.data.content && data.data.encoding === "base64") {
-        var contentArray = 
+        if (window.atob) {
+          var contentArray = 
           window
             .atob(data.data.content.replace(/\n/g, ""))
             .split("\n");
-
+        }
+        else
+        {
+          var contentArray = 
+          window
+            .base64.decode(data.data.content.replace(/\n/g, ""))
+            .split("\n");
+        }
         endLineNum = endLineNum || contentArray.length;
 
         callback(contentArray.slice(startLineNum - 1, endLineNum).join("\n"));
